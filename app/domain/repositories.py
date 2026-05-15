@@ -2,7 +2,6 @@ from uuid import UUID
 
 from app.domain.task import Task
 
-
 class TaskRepository:
     """In-memory task repository suitable for tests and local demos."""
 
