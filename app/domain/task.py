@@ -3,7 +3,6 @@ from datetime import UTC, datetime
 from enum import StrEnum
 from uuid import UUID, uuid4
 
-
 class TaskStatus(StrEnum):
     """Allowed lifecycle states for a task."""
 
