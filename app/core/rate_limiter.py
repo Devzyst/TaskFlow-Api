@@ -9,7 +9,6 @@ from starlette.responses import Response
 from app.core.config import settings
 from app.core.errors import ApiError
 
-
 class InMemoryRateLimiter:
     """Track request timestamps per client within a sliding time window."""
 
