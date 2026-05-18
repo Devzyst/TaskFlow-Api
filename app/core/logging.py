@@ -41,3 +41,4 @@ def configure_logging() -> None:
     root_logger.setLevel(settings.log_level.upper())
 
     logging.getLogger("uvicorn.access").disabled = True
+
