@@ -27,3 +27,9 @@ class TaskRead(BaseModel):
     status: TaskStatus
     created_at: datetime
     updated_at: datetime
+
+class HealthRead(BaseModel):
+    status: str
+    service: str
+    version: str
+    environment: str
