@@ -6,7 +6,6 @@ from typing import Any
 
 from app.core.config import settings
 
-
 class JsonFormatter(logging.Formatter):
     """Format application logs as compact JSON for production observability."""
 
