@@ -4,7 +4,6 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
-
 class ApiError(Exception):
     """Base exception for expected application failures."""
 
