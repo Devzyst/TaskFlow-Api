@@ -23,3 +23,4 @@ class TaskRepository:
 
     def clear(self) -> None:
         self._tasks.clear()
+
