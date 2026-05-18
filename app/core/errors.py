@@ -21,7 +21,6 @@ class ApiError(Exception):
         self.details = details
         super().__init__(message)
 
-
 def error_payload(
     request: Any,
     *,
