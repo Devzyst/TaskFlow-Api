@@ -85,4 +85,3 @@ def register_exception_handlers(app: Any) -> None:
                 message="An unexpected error occurred.",
             ),
         )
-
