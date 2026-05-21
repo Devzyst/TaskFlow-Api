@@ -32,3 +32,13 @@ def test_task_service_create_update_delete_flow(task_service):
 
     task_service.delete_task(task.id)
     assert task_service.list_tasks() == []
+
+def test_task_service_raises_structured_not_found_error(task_service):
+    missing_id = uuid4()
+
+    with pytest.raises(ApiError) as exc_info:
+        task_service.get_task(missing_id)
+
+    assert exc_info.value.status_code == 404
+    assert exc_info.value.code == "task_not_found"
+    assert exc_info.value.details == {"task_id": str(missing_id)}
