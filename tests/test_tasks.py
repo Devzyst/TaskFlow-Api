@@ -37,3 +37,9 @@ def test_missing_task_returns_structured_error(client):
     assert response.status_code == 404
     assert response.json()["error"]["code"] == "task_not_found"
     assert response.json()["error"]["details"]["task_id"] == str(missing_id)
+
+def test_validation_errors_are_structured(client):
+    response = client.post("/api/v1/tasks", json={"title": ""})
+
+    assert response.status_code == 422
+    assert response.json()["error"]["code"] == "validation_error"
