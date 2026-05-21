@@ -28,3 +28,12 @@ def test_update_task(client):
     assert response.json()["title"] == "Refined"
     assert response.json()["description"] == "Ready"
     assert response.json()["status"] == "done"
+
+def test_missing_task_returns_structured_error(client):
+    missing_id = uuid4()
+
+    response = client.get(f"/api/v1/tasks/{missing_id}")
+
+    assert response.status_code == 404
+    assert response.json()["error"]["code"] == "task_not_found"
+    assert response.json()["error"]["details"]["task_id"] == str(missing_id)
