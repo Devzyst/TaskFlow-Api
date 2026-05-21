@@ -43,3 +43,12 @@ def test_validation_errors_are_structured(client):
 
     assert response.status_code == 422
     assert response.json()["error"]["code"] == "validation_error"
+
+def test_delete_task(client):
+    created = client.post("/api/v1/tasks", json={"title": "Temporary"}).json()
+
+    delete_response = client.delete(f"/api/v1/tasks/{created['id']}")
+    get_response = client.get(f"/api/v1/tasks/{created['id']}")
+
+    assert delete_response.status_code == 204
+    assert get_response.status_code == 404
